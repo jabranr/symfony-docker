@@ -1,6 +1,6 @@
 ![image](https://user-images.githubusercontent.com/2131246/28238170-ef3578e8-6945-11e7-869c-5772725c3036.png)
 
-Setup boilerplate for Symfony framework in docker using combination of PHP/Apache or PHP-FPM/Nginx.
+Boilerplate for Symfony framework in docker using combination of PHP/Apache or PHP-FPM/Nginx.
 
 # Install Symfony
 Use `setup.sh` in terminal to install Symfony framework. This is just a helper script. Use any personal preferences to install Symfony if you wish. A custom project name can be given as an argument i.e.
