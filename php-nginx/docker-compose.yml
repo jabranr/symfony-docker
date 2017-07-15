@@ -6,16 +6,16 @@ services:
     ports:
       - "8080:80"
     links:
-      - php-fpm
+      - php
     volumes:
-      - ../../symfony:/app
+      - ../symfony:/app
 
-  php-fpm:
-    container_name: php-fpm
+  php:
+    container_name: php
     build: ./php-fpm
     working_dir: /app
     volumes:
-      - ../../symfony:/app
+      - ../symfony:/app
     environment:
       - SYMFONY_ENV=dev
       - SYMFONY_DEBUG=1
