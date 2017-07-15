@@ -34,6 +34,8 @@ docker-compose up -d
 This will setup docker with latest PHP 7 and nginx. The setup can be used for dev purpose out of the box. [http://localhost:8080](http://localhost:8080)
 
 
+![image](https://user-images.githubusercontent.com/2131246/28238424-febe1c20-694a-11e7-9cd0-962b4f52c150.png)
+
 > Make sure that only one of the above is running at a time. You can run both setup though but may run into issues. 
 
 MIT License
