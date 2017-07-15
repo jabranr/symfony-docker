@@ -1,0 +1,21 @@
+version: '2'
+services:
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    ports:
+      - "8080:80"
+    links:
+      - php-fpm
+    volumes:
+      - ../../symfony:/app
+
+  php-fpm:
+    container_name: php-fpm
+    build: ./php-fpm
+    working_dir: /app
+    volumes:
+      - ../../symfony:/app
+    environment:
+      - SYMFONY_ENV=dev
+      - SYMFONY_DEBUG=1

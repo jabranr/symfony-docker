@@ -1,0 +1,15 @@
+version: '2'
+services:
+  php-apache:
+    container_name: php-apache
+    build: .
+    working_dir: /app
+    expose:
+      - "80"
+    ports:
+      - "8000:80"
+    volumes:
+      - ../../symfony:/app
+    environment:
+      - SYMFONY_ENV=dev
+      - SYMFONY_DEBUG=1
