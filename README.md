@@ -6,11 +6,11 @@ Setup boilerplate for Symfony framework in docker using combination of PHP/Apach
 Use `setup.sh` in terminal to install Symfony framework. This is just a helper script. Use any personal preferences to install Symfony if you wish. A custom project name can be given as an argument i.e.
 
 ```bash
-$ ./setup.sh my-project
+./setup.sh my-project
 ```
 OR use default name (symfony) for the project
 ```bash
-$ ./setup.sh
+./setup.sh
 ```
 
 # Setup docker with Apache
