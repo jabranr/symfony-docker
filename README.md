@@ -1,4 +1,4 @@
-# Symfony docker setup
+![image](https://user-images.githubusercontent.com/2131246/28238170-ef3578e8-6945-11e7-869c-5772725c3036.png)
 
 Setup boilerplate for Symfony framework in docker using combination of PHP/Apache or PHP-FPM/Nginx.
 
