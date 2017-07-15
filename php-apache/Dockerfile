@@ -14,6 +14,6 @@ RUN a2enmod rewrite
 #USER php-user
 
 COPY php.ini /usr/local/etc/php/php.ini
-#COPY apache.conf /etc/apache2/sites-available/000-default.conf
+COPY apache.conf /etc/apache2/sites-available/000-default.conf
 
 WORKDIR /app

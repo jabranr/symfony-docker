@@ -23,6 +23,8 @@ docker-compose up -d
 ```
 This will setup docker with PHP 7 latest and Apache 2.4. The setup can be used for dev purpose out of the box. [http://localhost:8000](http://localhost:8000)
 
+![image](https://user-images.githubusercontent.com/2131246/28238568-ae13ca32-694e-11e7-9056-b953b6be1c58.png)
+
 # Setup docker with nginx & PHP-fpm
 
 > Make sure to update name of the project directory in `php-nginx/docker-compose.yml` under `volumes:` from default `symfony` to whatever you have used for symfony installation.
