@@ -1,15 +1,21 @@
-version: '2'
+version: '3'
+
 services:
+
   php-apache:
-    container_name: php-apache
     build: .
-    working_dir: /app
-    expose:
-      - 80
+    container_name: php-apache
+    privileged: true
     ports:
-      - 8080:80
+      - '8080:80'
     volumes:
-      - ../symfony:/app
+      - ../symfony-app:/app
+      - ../symfony-app/web:/app/web
+      - ../config/opcache.php:/app/web/opcache.php
+      - ../config/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ../config/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
+      - ../config/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+      - ./apache.conf:/etc/apache2/sites-available/000-default.conf
     environment:
       - SYMFONY_ENV=dev
       - SYMFONY_DEBUG=1

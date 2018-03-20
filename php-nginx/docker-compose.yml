@@ -1,21 +1,33 @@
-version: '2'
+version: '3'
+
 services:
+
   nginx:
+    image: nginx:latest
     container_name: nginx
-    build: ./nginx
+    privileged: true
     ports:
-      - "8080:80"
+      - '8080:80'
     links:
       - php
     volumes:
-      - ../symfony:/app
+      - ../symfony-app:/app
+      - ../symfony-app/web:/app/web
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
 
   php:
-    container_name: php
-    build: ./php-fpm
+    build: .
+    container_name: php-fpm
     working_dir: /app
+    privileged: true
     volumes:
-      - ../symfony:/app
+      - ../symfony-app:/app
+      - ../symfony-app/web:/app/web
+      - ../config/opcache.php:/app/web/opcache.php
+      - ../config/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ../config/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
+      - ../config/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+      - ./php-fpm.conf:/etc/php-fpm.conf
     environment:
       - SYMFONY_ENV=dev
       - SYMFONY_DEBUG=1

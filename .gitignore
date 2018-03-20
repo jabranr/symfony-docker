@@ -1,4 +1,12 @@
 .DS_Store
 Thumbs.db
-.idea/
-symfony/
+*/
+composer.phar
+!LICENSE
+!README.md
+!setup.sh
+!.gitignore
+!php-apache/
+!php-nginx/
+!config/
+*.yml-e
