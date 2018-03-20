@@ -24,7 +24,7 @@ services:
       - ../symfony-app:/app
       - ../symfony-app/web:/app/web
       - ../config/opcache.php:/app/web/opcache.php
-      - ../config/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ../config/php.ini:/usr/local/etc/php/php.ini
       - ../config/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
       - ../config/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
       - ./php-fpm.conf:/etc/php-fpm.conf
