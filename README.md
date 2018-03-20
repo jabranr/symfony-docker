@@ -2,7 +2,7 @@
 
 Development setup for Symfony framework using docker. OPCache and Xdebug are enabled out of the box to help you start cracking on the code. 
 
-The setup has supports for combination of PHP CGI with Apache or PHP fpm with nginx.
+The setup has supports for combination of `PHP CGI with Apache` or `PHP fpm with nginx`.
 
 # Install Symfony
 Use `setup.sh` in terminal to install latest Symfony framework standard edition. This is just a helper script. You can use other preferred ways to install Symfony framework. A custom project name can be given as an argument i.e.
@@ -46,7 +46,9 @@ OPcache is enabled out of the box. View OPcache status at [http://localhost:8080
 
 # Xdebug
 
-Xdebug is enabled out of the box!
+Xdebug is enabled out of the box! The logs for Xdebug can be found at `/tmp/xdebug.log`.
+
+![image](https://user-images.githubusercontent.com/2131246/37686925-6fb98518-2c91-11e8-8099-88d191681456.png)
 
 MIT License
 &copy; Jabran Rafique 2017
