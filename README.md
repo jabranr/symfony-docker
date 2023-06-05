@@ -8,7 +8,8 @@ Run and develop your Symfony application locally with docker using combination o
 - Apache / Nginx
 
 ## Prerequisites
-- Docker
+- [Docker](https://www.docker.com/)
+- [Docker compose](https://docs.docker.com/compose/)
 
 ## Setup
 
