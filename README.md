@@ -2,14 +2,25 @@
 
 Run and develop your Symfony application locally with docker using combination of PHP/Apache or PHP-FPM/Nginx with Xdebug.
 
-- PHP 8
+- PHP 8 / PHP-FPM
 - Symfony 5+
 - Xdebug
+- Apache / Nginx
 
 ## Prerequisites
 - Docker
 
 ## Setup
+
+**Table of Content**
+
+1. [Existing symfony application](#existing-symfony-application)
+2. [Start PHP Apache](#php-apache)
+3. [Start PHP-FPM Nginx](#php-fpm-nginx)
+4. [Setup a new symfony application](#new-symfony-application)
+5. [Shutdown/teardown](#shutdownteardown)
+
+### Existing symfony application
 
 This setup works with both an existing and new symfony applications. Here is an expected project structure:
 
