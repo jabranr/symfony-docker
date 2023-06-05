@@ -13,10 +13,12 @@ Run and develop your Symfony application locally with docker using combination o
 
 This setup works with both an existing and new symfony applications. Here is an expected project structure:
 
+```sh
 |- symfony-docker/
   |- symfony_app/
   |- php-apache/
   |- php-nginx/
+```
 
 You only need one combination to start your development environment.
 
