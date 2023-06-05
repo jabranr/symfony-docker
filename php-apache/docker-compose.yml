@@ -1,7 +1,7 @@
 version: '2'
 services:
   php-apache:
-    container_name: php-apache
+    container_name: symfony-docker
     build: .
     working_dir: /app
     expose:
@@ -9,7 +9,7 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ../symfony:/app
+      - ../symfony_app:/app
     environment:
       - SYMFONY_ENV=dev
       - SYMFONY_DEBUG=1

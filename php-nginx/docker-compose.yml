@@ -1,21 +1,21 @@
 version: '2'
 services:
   nginx:
-    container_name: nginx
+    container_name: symfony-docker
     build: ./nginx
     ports:
       - "8080:80"
     links:
       - php
     volumes:
-      - ../symfony:/app
+      - ../symfony_app:/app
 
   php:
     container_name: php
     build: ./php-fpm
     working_dir: /app
     volumes:
-      - ../symfony:/app
+      - ../symfony_app:/app
     environment:
       - SYMFONY_ENV=dev
       - SYMFONY_DEBUG=1
