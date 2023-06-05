@@ -1,44 +1,96 @@
 ![image](https://user-images.githubusercontent.com/2131246/28238170-ef3578e8-6945-11e7-869c-5772725c3036.png)
 
-Boilerplate for Symfony framework in docker using combination of PHP/Apache or PHP-FPM/Nginx.
+Run and develop your Symfony application locally with docker using combination of PHP/Apache or PHP-FPM/Nginx with Xdebug.
 
-# Install Symfony
-Use `setup.sh` in terminal to install Symfony framework. This is just a helper script. Use any personal preferences to install Symfony if you wish. A custom project name can be given as an argument i.e.
+- PHP 8
+- Symfony 5+
+- Xdebug
 
-```bash
-./setup.sh my-project
+## Prerequisites
+- Docker
+
+## Setup
+
+This setup works with both an existing and new symfony applications. Here is an expected project structure:
+
+|- symfony-docker/
+  |- symfony_app/
+  |- php-apache/
+  |- php-nginx/
+
+You only need one combination to start your development environment.
+
+- Copy `php-apache` into your symfony app directory for PHP/Apache
+- Copy `php-nginx` into your symfony app directory for PHP-FPM/Nginx
+
+Choose commands from following for relevant environment:
+
+### PHP Apache
+
+```sh
+cd symfony-docker/
+
+# Start PHP with Apache
+docker-compose -f php-apache/docker-compose.yml up
+
+# Rebuild docker image then start PHP with Apache
+docker-compose -f php-apache/docker-compose.yml up --build
 ```
-OR use default name (symfony) for the project
-```bash
-./setup.sh
+
+### PHP-FPM Nginx
+
+```sh
+cd symfony-docker/
+
+# Start PHP-FPM with Nginx
+docker-compose -f php-nginx/docker-compose.yml up
+
+# Rebuild docker image then start PHP-FPM with Nginx
+docker-compose -f php-nginx/docker-compose.yml up --build
 ```
 
-# Setup docker with Apache
+The symfony app will be available at http://localhost:8080
 
-> Make sure to update name of the project directory in `php-apache/docker-compose.yml` under `volumes:` from default `symfony` to whatever you have used for symfony installation.
 
-```bash
-cd php-apache/
-docker-compose up -d
+> If you do not already have a symfony app then follow next section to create a new symfony app.
+
+### New symfony application
+
+It's very easy to start a new symfony app.
+
+Open a new terminal and install Symfony with following commands:
+
+```sh
+# it will create a new symfony app in `symfony_app` directory
+docker exec symfony-docker bash -c "composer create-project symfony/skeleton:\"6.3.*\" ."
 ```
-This will setup docker with PHP 7 latest and Apache 2.4. The setup can be used for dev purpose out of the box. [http://localhost:8000](http://localhost:8000)
 
-![image](https://user-images.githubusercontent.com/2131246/28238568-ae13ca32-694e-11e7-9056-b953b6be1c58.png)
+If you are building a web application then also run following:
 
-# Setup docker with nginx & PHP-fpm
-
-> Make sure to update name of the project directory in `php-nginx/docker-compose.yml` under `volumes:` from default `symfony` to whatever you have used for symfony installation.
-
-```bash
-cd php-nginx/
-docker-compose up -d
+```sh
+docker exec symfony-docker bash -c "composer require webapp"
 ```
-This will setup docker with latest PHP 7 and nginx. The setup can be used for dev purpose out of the box. [http://localhost:8080](http://localhost:8080)
+
+Refresh your browser at http://localhost:8080 to see symfony welcome page.
+
+> You can rename the `symfony_app` to whatever you like but make sure to update the references in `docker-compose.yml` files.
 
 
-![image](https://user-images.githubusercontent.com/2131246/28238424-febe1c20-694a-11e7-9cd0-962b4f52c150.png)
+![image](https://github.com/jabranr/symfony-docker/assets/2131246/915abf2d-267f-4602-941a-8252698f8211)
 
-> Make sure that only one of the above is running at a time. You can run both setup though but may run into issues. 
+> You can only run one of the above combinations.
+
+### Shutdown/teardown
+
+Use following command relevant to your development environment to shutdown/teardown:
+
+```sh
+# Shutdown/teardown PHP/Apache
+docker-compose -f php-apache/docker-compose.yml down
+
+# Shutdown/teardown PHP-FPM/Nginx
+docker-compose -f php-nginx/docker-compose.yml down
+```
 
 MIT License
-&copy; Jabran Rafique 2017
+&copy; Jabran Rafique since 2017
